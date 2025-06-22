@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blog Post Manager</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Inline fix to enforce consistent width */
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>📝 Blog Post Manager</h1>
+
+    <div class="main-content">
+      <!-- Sidebar -->
+      <div id="post-list" class="sidebar">
+        <h3>📚 All Posts</h3>
+        <!-- Post titles injected here -->
+      </div>
+
+      <!-- Post Details + Edit -->
+      <div class="details-section">
+        <div id="post-detail">
+          <p>Select a post to view details.</p>
+        </div>
+
+        <!-- Edit Form -->
+        <form id="edit-post-form" class="hidden">
+          <h4>✏️ Update Post Details</h4>
+
+          <div class="form-group">
+            <label for="edit-title">Title:</label>
+            <input type="text" id="edit-title" required />
+          </div>
+
+          <div class="form-group">
+            <label for="edit-content">Content:</label>
+            <textarea id="edit-content" rows="4" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <button type="submit">Update Post</button>
+            <button type="button" id="cancel-edit">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- New Post Form -->
+    <form id="new-post-form" class="new-post-form">
+      <h3>➕ Add New Post</h3>
+
+      <div class="form-group">
+        <label for="new-title">Title:</label>
+        <input type="text" id="new-title" placeholder="Post Title" required />
+      </div>
+
+      <div class="form-group">
+        <label for="new-content">Content:</label>
+        <textarea id="new-content" placeholder="Post Content" rows="4" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="new-author">Author:</label>
+        <input type="text" id="new-author" placeholder="Author" required />
+      </div>
+
+      <div class="form-group">
+        <button type="submit">Create Post</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="src/index.js"></script>
+</body>
+</html>
+
