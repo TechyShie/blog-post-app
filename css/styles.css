@@ -1,39 +1,47 @@
 /* BODY & MAIN CONTAINER */
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #7c5c6c;
-  color: #ffffff;
+  background: linear-gradient(135deg, #8983F0, #E8C1DD, #EEDCFF, #F9F3FB);
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease infinite;
+  color: #4e4b5c;
   margin: 0;
   padding: 20px;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .container {
   max-width: 1000px;
   margin: auto;
   padding: 20px;
-  background-color: #a4a5b4;
+  background-color: rgba(249, 243, 251, 0.92);
   border-radius: 12px;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 12px rgba(137, 131, 240, 0.25);
 }
 
 /* HEADERS */
 h1, h3, h4 {
-  color: #ffffff;
+  color: #4e4b5c;
   margin-bottom: 10px;
 }
 
 /* SIDEBAR */
 .sidebar {
   width: 30%;
-  background-color: #8c798e;
+  background-color: #E8C1DD;
   padding: 15px;
   border-radius: 8px;
   height: fit-content;
 }
 
 .sidebar div {
-  background-color: #7f808c;
-  color: #ffffff;
+  background-color: #EEDCFF;
+  color: #4e4b5c;
   padding: 10px;
   margin-bottom: 8px;
   border-radius: 6px;
@@ -42,7 +50,8 @@ h1, h3, h4 {
 }
 
 .sidebar div:hover {
-  background-color: #65616b;
+  background-color: #8983F0;
+  color: #ffffff;
 }
 
 /* MAIN LAYOUT */
@@ -58,10 +67,10 @@ h1, h3, h4 {
 }
 
 #post-detail {
-  background-color: #8c798e;
+  background-color: #F9F3FB;
   padding: 15px;
   border-radius: 8px;
-  color: #ffffff;
+  color: #4e4b5c;
   margin-bottom: 15px;
 }
 
@@ -73,15 +82,15 @@ form {
 }
 
 label {
-  color: #ffffff;
+  color: #4e4b5c;
 }
 
 input,
 textarea {
   padding: 10px;
-  background-color: #7f808c;
-  color: #ffffff;
-  border: 1px solid #65616b;
+  background-color: #EEDCFF;
+  color: #4e4b5c;
+  border: 1px solid #8983F0;
   border-radius: 6px;
   font-size: 1rem;
   width: 100%;
@@ -90,7 +99,7 @@ textarea {
 
 /* BUTTONS */
 button {
-  background-color: #65616b;
+  background-color: #8983F0;
   color: #ffffff;
   border: none;
   padding: 10px;
@@ -101,17 +110,17 @@ button {
 }
 
 button:hover {
-  background-color: #ffffff;
-  color: #65616b;
+  background-color: #E8C1DD;
+  color: #4e4b5c;
 }
 
 #cancel-edit {
-  background-color: #7f808c;
+  background-color: #EEDCFF;
 }
 
 #cancel-edit:hover {
-  background-color: #ffffff;
-  color: #7f808c;
+  background-color: #8983F0;
+  color: #ffffff;
 }
 
 /* EDIT FORM HIDE CLASS */
@@ -122,11 +131,11 @@ button:hover {
 /* NEW POST SECTION */
 .new-post-form {
   margin-top: 30px;
-  border-top: 2px solid #65616b;
+  border-top: 2px solid #8983F0;
   padding-top: 20px;
 }
 
-/* Form field wrapper (uniform size) */
+/* Form field wrapper */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -134,3 +143,4 @@ button:hover {
   max-width: 500px;
   width: 100%;
 }
+

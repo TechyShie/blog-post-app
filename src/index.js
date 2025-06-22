@@ -1,7 +1,8 @@
-
 document.addEventListener('DOMContentLoaded', main);
 
+
 const BASE_URL = 'http://localhost:3000/posts';
+let lastDeletedPost = null;
 
 function main() {
   displayPosts();
@@ -16,6 +17,11 @@ function displayPosts() {
       const list = document.getElementById('post-list');
       list.innerHTML = '';
 
+      if (posts.length === 0) {
+        document.getElementById('post-detail').innerHTML = '<p>No posts available.</p>';
+        return;
+      }
+
       posts.forEach(post => {
         const div = document.createElement('div');
         div.textContent = post.title;
@@ -24,8 +30,10 @@ function displayPosts() {
         list.appendChild(div);
       });
 
-      // Show first post on load (advanced)
-      if (posts.length) handlePostClick(posts[0].id);
+      const detail = document.getElementById('post-detail');
+      if (!detail.innerHTML || detail.innerHTML.includes("Select a post") || detail.innerHTML.includes("No posts")) {
+        handlePostClick(posts[0].id);
+      }
     });
 }
 
@@ -108,17 +116,61 @@ function setupEdit(post) {
   };
 }
 
-// Setup delete functionality
+// Setup delete functionality with undo
 function setupDelete(postId) {
   const deleteBtn = document.getElementById('delete-btn');
   deleteBtn.onclick = () => {
-    fetch(`${BASE_URL}/${postId}`, {
-      method: 'DELETE'
-    })
+    fetch(`${BASE_URL}/${postId}`)
+      .then(res => res.json())
+      .then(post => {
+        lastDeletedPost = post;
+
+        return fetch(`${BASE_URL}/${postId}`, {
+          method: 'DELETE'
+        });
+      })
       .then(() => {
         displayPosts();
         document.getElementById('post-detail').innerHTML = '<p>Select a post to view details.</p>';
         document.getElementById('edit-post-form').classList.add('hidden');
+        showUndoOption();
       });
   };
+}
+
+function showUndoOption() {
+  const existing = document.getElementById('undo-container');
+  if (existing) existing.remove();
+
+  const undoContainer = document.createElement('div');
+  undoContainer.id = 'undo-container';
+  undoContainer.innerHTML = `
+    <div style="background:#EEDCFF; padding:12px; margin-top:16px; border-radius:8px; color:#4e4b5c; text-align:center;">
+      <strong>Post deleted.</strong>
+      <button id="undo-btn" style="margin-left:12px; background:#8983F0; color:white; padding:8px 16px; border:none; border-radius:6px; cursor:pointer;">Undo</button>
+    </div>
+  `;
+  document.body.appendChild(undoContainer);
+
+  document.getElementById('undo-btn').addEventListener('click', () => {
+    if (lastDeletedPost) {
+      fetch(BASE_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(lastDeletedPost)
+      })
+        .then(() => {
+          displayPosts();
+          undoContainer.remove();
+          lastDeletedPost = null;
+        });
+    }
+  });
+
+  setTimeout(() => {
+    if (document.body.contains(undoContainer)) {
+      undoContainer.remove();
+      lastDeletedPost = null;
+    }
+  }, 10000);
 }

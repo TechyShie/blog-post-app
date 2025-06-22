@@ -9,12 +9,12 @@
     {
       "id": 2,
       "title": "Why I Love Coding",
-      "content": "Because I get to build cool stuff like this blog! I love bringing my ideas to life.",
+      "content": "Because I get to build cool stuff like this blog!",
       "author": "Susan"
     },
     {
-      "title": "The Earth We Live In🌍. ",
-      "content": "My lovely earth. It has seven continents.",
+      "title": "The Earth We Live In🌍",
+      "content": "My lovely earth",
       "author": "Susan Wanjiru",
       "id": 3
     }
