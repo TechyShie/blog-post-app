@@ -2,10 +2,10 @@
   "posts": [
     {
       "title": "Barbie dreams",
-      "content": "I'm a barbie girl, in a barbie world",
+      "content": "ChatGPT said:\nAbsolutely! Here's a short, three-paragraph blog sample you can use for \"Barbie Dreams\" — it has a dreamy, reflective tone but keeps things light and personal:\n\n✨ Barbie Dreams: More Than Just Plastic\n\nGrowing up, Barbie wasn’t just a doll — she was a whole world. From astronaut to vet to popstar, she made it feel like anything was possible. I’d line them up on my pink carpet, each one with a different story, a different dream. And in between brushing their hair and switching outfits, I was building the confidence to imagine my own dreams, too.\n\nAs I got older, I realized Barbie was more than just fun — she was kind of iconic. Sure, she’s been criticized, but she’s also evolved. Now she comes in all shapes, skin tones, and styles, showing that “Barbie” isn’t a one-size-fits-all fantasy. That shift? It matters. Because representation in even the smallest things — like toys — has power.\n\nToday, I look back at those Barbie dreams with a soft smile. They were playful and bold, a little sparkly and a little wild. But most importantly, they were mine. And maybe that’s what Barbie really gave us — permission to imagine, reimagine, and always dream a little bigger.\n\n",
       "author": "nicki",
       "image": "https://i.pinimg.com/736x/ce/6d/13/ce6d13e1a9381b0a10eb0b8326402295.jpg",
-      "date": "2025-06-24T08:16:50.442Z",
+      "date": "2025-06-24T08:47:32.063Z",
       "id": 4
     },
     {
@@ -23,6 +23,14 @@
       "image": "",
       "date": "2025-06-24T08:11:55.552Z",
       "id": 6
+    },
+    {
+      "title": "MINE",
+      "content": "be mine",
+      "author": "me",
+      "image": "",
+      "date": "2025-06-24T08:42:38.445Z",
+      "id": 7
     }
   ]
 }

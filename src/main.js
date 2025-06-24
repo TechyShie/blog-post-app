@@ -41,22 +41,26 @@ function displayPosts() {
 }
 
 function showPost(post) {
-  const hasImage = post.image && post.image.trim() !== "";
-
-  postDetail.innerHTML = `
-    <h2>${post.title}</h2>
-    <p class="post-meta">By ${post.author} • ${formatDate(post.date)}</p>
-    ${hasImage ? `<img src="${post.image}" alt="${post.title}" class="post-image">` : ""}
-    <p>${post.content}</p>
-    <div class="post-actions">
-      <button class="edit-btn">Edit</button>
-      <button class="delete-btn">Delete</button>
+  const imageSection = `
+    <div class="post-hero" style="background-image: url('${post.image || "https://via.placeholder.com/600x300?text=No+Image"}');">
+      <div class="overlay-content">
+        <h2>${post.title}</h2>
+        <p class="post-meta">By ${post.author} • ${formatDate(post.date)}</p>
+        <p>${post.content}</p>
+        <div class="post-actions">
+          <button class="edit-btn">Edit</button>
+          <button class="delete-btn">Delete</button>
+        </div>
+      </div>
     </div>
   `;
+
+  postDetail.innerHTML = imageSection;
 
   postDetail.querySelector(".delete-btn").onclick = () => deletePost(post.id);
   postDetail.querySelector(".edit-btn").onclick = () => loadEdit(post);
 }
+
 
 
 
