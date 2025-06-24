@@ -1,5 +1,6 @@
-const BASE_URL = "http://localhost:3000/posts";
+const BASE_URL = "http://localhost:3000/posts";//local API endpoint....all the blog's data are stored
 
+//grabs specific html elements to enable updating 
 const postList = document.getElementById("post-list");
 const postDetail = document.getElementById("post-detail");
 const postCount = document.getElementById("post-count");
@@ -11,19 +12,20 @@ const authorInput = document.getElementById("new-author");
 const imageInput = document.getElementById("image");
 const cancelBtn = document.getElementById("cancel-edit");
 
+//waits for entire html form to load before running an js.
 document.addEventListener("DOMContentLoaded", () => {
   displayPosts();
-  form.addEventListener("submit", handleSubmit);
-  cancelBtn?.addEventListener("click", resetForm);
+  form.addEventListener("submit", handleSubmit);//listens for form submission.
+  cancelBtn?.addEventListener("click", resetForm);//for when cancelling or editing the form.
 });
 
-function formatDate(date) {
+function formatDate(date) {//for the date part, giving it a specified formart.
   return new Date(date).toLocaleDateString("en-US", {
     year: "numeric", month: "long", day: "numeric"
   });
 }
 
-function displayPosts() {
+function displayPosts() {//shows all posted blogs on side bar in a list
   fetch(BASE_URL)
     .then(res => res.json())
     .then(posts => {
@@ -40,7 +42,7 @@ function displayPosts() {
     });
 }
 
-function showPost(post) {
+function showPost(post) {//displays full blog contents.
   const imageSection = `
     <div class="post-hero" style="background-image: url('${post.image || "https://via.placeholder.com/600x300?text=No+Image"}');">
       <div class="overlay-content">
@@ -57,15 +59,12 @@ function showPost(post) {
 
   postDetail.innerHTML = imageSection;
 
-  postDetail.querySelector(".delete-btn").onclick = () => deletePost(post.id);
-  postDetail.querySelector(".edit-btn").onclick = () => loadEdit(post);
+  postDetail.querySelector(".delete-btn").onclick = () => deletePost(post.id);//for deleting the post.
+  postDetail.querySelector(".edit-btn").onclick = () => loadEdit(post);//loads the post into the form for editing
 }
 
-
-
-
-function handleSubmit(e) {
-  e.preventDefault();
+function handleSubmit(e) {//Adds or updates a post.
+  e.preventDefault();//stops form from reloading the page
   const postData = {
     title: titleInput.value,
     content: contentInput.value,
@@ -83,11 +82,11 @@ function handleSubmit(e) {
     body: JSON.stringify(postData)
   }).then(() => {
     resetForm();
-    displayPosts();
+    displayPosts();//resfresh the list
   });
 }
 
-function loadEdit(post) {
+function loadEdit(post) {//loads post data into form for editing
   titleInput.value = post.title;
   contentInput.value = post.content;
   authorInput.value = post.author;
@@ -95,21 +94,21 @@ function loadEdit(post) {
   form.dataset.editing = post.id;
   form.querySelector("button[type='submit']").textContent = "Update Post";
 
-  // ✅ Show the cancel button ONLY when editing
+  // Show the cancel button ONLY when editing
   cancelBtn.classList.remove("hidden");
 }
 
-function resetForm() {
+function resetForm() {//clears form and exits edit mode.
   form.reset();
   delete form.dataset.editing;
   form.querySelector("button[type='submit']").textContent = "Create Post";
 
-  // ✅ Hide the cancel button when not editing
+  //  Hide the cancel button when not editing
   cancelBtn.classList.add("hidden");
 }
 
 
-function deletePost(id) {
+function deletePost(id) {//removes the selected post
   fetch(`${BASE_URL}/${id}`, { method: "DELETE" })
     .then(() => {
       postDetail.innerHTML = "<p>Post deleted. Select another post.</p>";

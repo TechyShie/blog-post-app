@@ -17,12 +17,53 @@ h1 {
   color: #6B4FA3;
 }
 
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.sidebar, .details-section {
+  flex: 1 1 300px;
+}
+
+.sidebar {
+  background: #fff8;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 5px #8983f025;
+  text-align: center;
+}
+
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.post-item {
+  background: #F9F3FB;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 90%;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.post-item:hover {
+  background: #EEDCFF;
+}
+
 form {
-  background: rgba(255, 255, 255, 0.85);
+  background: #fff8;
   padding: 15px;
   border-radius: 12px;
   margin-bottom: 20px;
-  box-shadow: 0 2px 5px rgba(137, 131, 240, 0.15);
+  box-shadow: 0 2px 5px #8983f025;
 }
 
 input, textarea {
@@ -44,7 +85,7 @@ button {
   font-size: 16px;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: 0.3s;
 }
 
 button:hover {
@@ -56,22 +97,18 @@ button:hover {
 }
 
 .post-hero {
-  position: relative;
-  background-size: contain;
-  background-repeat: no-repeat;
+  background-size: cover;
   background-position: center;
   border-radius: 12px;
-  overflow: hidden;
   min-height: 350px;
-  width: 100%;
-  max-width: 600px;
-  margin: auto;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  color: #fff;
+  color: white;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .post-hero::before {
@@ -87,27 +124,12 @@ button:hover {
   position: relative;
   z-index: 1;
   padding: 20px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.post-title {
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.post-text {
-  font-size: 16px;
-  margin-bottom: auto;
 }
 
 .post-meta {
   font-size: 14px;
   opacity: 0.85;
-  margin-top: auto;
+  margin-top: 10px;
 }
 
 .post-actions {
@@ -115,16 +137,16 @@ button:hover {
 }
 
 .edit-btn, .delete-btn {
-  background-color: #E8C1DD;
+  background: #E8C1DD;
   color: #493129;
   border: none;
   padding: 8px 12px;
   border-radius: 6px;
   cursor: pointer;
   margin: 5px;
-  transition: background 0.3s ease;
+  transition: 0.3s;
 }
 
 .edit-btn:hover, .delete-btn:hover {
-  background-color: #EEDCFF;
+  background: #EEDCFF;
 }
