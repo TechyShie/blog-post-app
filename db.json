@@ -1,22 +1,28 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "Exploring the Stars💫💫",
-      "content": "Space is vast and full of wonder. Here's what I learned about nebulas.",
-      "author": "Shie"
+      "title": "Barbie dreams",
+      "content": "I'm a barbie girl, in a barbie world",
+      "author": "nicki",
+      "image": "https://i.pinimg.com/736x/ce/6d/13/ce6d13e1a9381b0a10eb0b8326402295.jpg",
+      "date": "2025-06-24T08:16:50.442Z",
+      "id": 4
     },
     {
-      "id": 2,
-      "title": "Why I Love Coding",
-      "content": "Because I get to build cool stuff like this blog! I love bringing my ideas to life.",
-      "author": "Susan"
+      "title": "saple blog",
+      "content": "content update",
+      "author": "susan wanjiru",
+      "image": "https://picsum.photos/600/300",
+      "date": "2025-06-24T08:23:11.697Z",
+      "id": 5
     },
     {
-      "title": "The Earth We Live In🌍. ",
-      "content": "My lovely earth. It has seven continents.",
-      "author": "Susan Wanjiru",
-      "id": 3
+      "title": "Solar Eclipse",
+      "content": "solar eclipse",
+      "author": "ralph",
+      "image": "",
+      "date": "2025-06-24T08:11:55.552Z",
+      "id": 6
     }
   ]
 }
